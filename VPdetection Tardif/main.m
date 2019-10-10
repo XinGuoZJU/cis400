@@ -35,13 +35,18 @@ ARGS.imgStr = imgStr;
 im = imread(imgStr);
 im = rgb2gray(im);
 if ARGS.plot
-  f1 = sfigure(1); clf; imshow(im);
+  f1 = sfigure(1); 
+  clf; 
+  % imshow(im); % comment
 end
 ARGS.imgS = max(size(im));
 
 
 %getting edges
 [vsEdges,ARGS.imE] = FACADE_getEdgelets2(im, ARGS);
+
+'guoxin'
+vsEdges
 
 %get vp
 ARGS.JL_ALGO=2;

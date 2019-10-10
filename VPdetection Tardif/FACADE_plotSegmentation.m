@@ -32,7 +32,7 @@ function FACADE_plotSegmentation(im,  vsEdges,  vClass, vP_v, vbOutliers, algoNu
     %ploting this
     sfigure(1);    clf;
     if ~noIm
-        imshow(im);
+        % imshow(im); % comment
     end
     %edges with color/association
     hold on

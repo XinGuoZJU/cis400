@@ -39,7 +39,7 @@ Instructions
 
 1) An example of Makefile.spec is given if Makefile.spec.jaunty, modify it for your machine
 
-2) compile using make
+2) compile using make   # There is also an error during make, it doesn't effect the final result, but please attention!
 
 3a) start matlab and run main('image_filename')
 3b) or modify YDB.list according the location the York database images and launch main_YDB()

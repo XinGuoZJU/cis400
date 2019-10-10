@@ -22,7 +22,7 @@ function [vsEdges,imgEdge] = FACADE_getEdgelets2(img, ARGS)
         set(pFigEdges, 'PaperPositionMode', 'auto')
         set(pFigEdges, 'inverthardcopy',    'off');
         %imshow(img, 'InitialMagnification', 100)
-        imshow(imgEdge, 'InitialMag', 100)
+        % imshow(imgEdge, 'InitialMag', 100)  % comment
         hold on
         drawedgelist(edgelist, size(img), 3, 'rand'); axis off        
         hold off
