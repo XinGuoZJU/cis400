@@ -22,7 +22,11 @@ function vsEdges = FACADE_build_vsEdges(vPts_un, ARGS, noFit)
     imgDiagN = norm(vCrnN(1:2,1) - vCrnN(1:2,4),2);
     
     %-------------------------------------------------
-    
+    %%  vsEdges struct: (for each cell)
+    %       vPts_un: line segs: 2 x number
+    %       vPts: line_segs, which is normalized (differ 1/2)
+    %       vL:
+
     for j=1:nbLine
         
         vsEdges(j).vPts_un = vPts_un{j};

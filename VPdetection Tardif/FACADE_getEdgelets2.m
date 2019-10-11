@@ -14,15 +14,19 @@ function [vsEdges,imgEdge] = FACADE_getEdgelets2(img, ARGS)
     FCprintf('segment connected components in straight lines\n');
     edgelist = lineseg2(edgelist, ARGS.linesegTOL);
     vn = cellfun(@length, edgelist);
-    edgelist = {edgelist{vn>ARGS.minEdgeLength}};
+    edgelist = {edgelist{vn>ARGS.minEdgeLength}};  % edgelist: cell, for each cell is num x 2
     FCprintf('Found %d lines\n', length(edgelist));
     
+    
     if ARGS.plot 
+        f = figure('visible','off');
+        
         sfigure(pFigEdges); clf(pFigEdges);
         set(pFigEdges, 'PaperPositionMode', 'auto')
         set(pFigEdges, 'inverthardcopy',    'off');
         %imshow(img, 'InitialMagnification', 100)
-        % imshow(imgEdge, 'InitialMag', 100)  % comment
+        %imshow(imgEdge, 'InitialMag', 100)
+        image(imgEdge); %colormap(gray(256));
         hold on
         drawedgelist(edgelist, size(img), 3, 'rand'); axis off        
         hold off
@@ -31,7 +35,8 @@ function [vsEdges,imgEdge] = FACADE_getEdgelets2(img, ARGS)
         
         drawnow 
         if ARGS.savePlot
-            filename= sprintf( 'fig/__tmp_edge_overlay.jpg');
+            %filename= sprintf( 'fig/__tmp_edge_overlay.jpg');
+            filename= sprintf([ARGS.savePath, '/imgEdge.png']);
             %saveas(pFigEdges,filename, 'jpg'); 
             print('-noui' ,'-r0', '-djpeg',  filename);
             %print('-r0', '-djpeg',  filename);
@@ -41,7 +46,7 @@ function [vsEdges,imgEdge] = FACADE_getEdgelets2(img, ARGS)
     %-----------------------------------------------------------------
     ARGS.imgW =size(img,2);
     ARGS.imgH =size(img,1);
-               
+
     nbLine =  length(edgelist);
        
     %-----------------------------------------------------------------
@@ -50,7 +55,7 @@ function [vsEdges,imgEdge] = FACADE_getEdgelets2(img, ARGS)
     m=[[0,1];...
        [1,0]];
     for j=1:nbLine
-        vPts_un{j} =m*[edgelist{j}]'+1;
+        vPts_un{j} =m*[edgelist{j}]'+1;  % vPts_un: cell, for each cell is 2 x num
     end
     vsEdges = FACADE_build_vsEdges(vPts_un, ARGS, false);
     

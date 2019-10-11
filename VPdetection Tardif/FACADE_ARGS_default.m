@@ -48,3 +48,5 @@ function ARGS = FACADE_ARGS_default(ARGS)
     ARGS.edgeGT            = false; %use ground truth for Yord DB
     ARGS.plot              = 0;     %show plot
     ARGS.savePlot          = false; %save plot
+    ARGS.savePath          = '';    %save path
+   

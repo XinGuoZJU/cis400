@@ -28,11 +28,12 @@ function FACADE_plotSegmentation(im,  vsEdges,  vClass, vP_v, vbOutliers, algoNu
     
     nbClass = max(vClass);
     mClr = FACADE_colorMap(nbClass);
-    
+   
+    f = figure('visible','off');
     %ploting this
     sfigure(1);    clf;
     if ~noIm
-        % imshow(im); % comment
+        image(im); % colormap(gray(256));
     end
     %edges with color/association
     hold on
@@ -90,9 +91,8 @@ function FACADE_plotSegmentation(im,  vsEdges,  vClass, vP_v, vbOutliers, algoNu
     end    
     hold off
     
-    
-    if algoNum >0 %save plot
-        filename= sprintf( 'fig/__res_class_%02d.jpg', algoNum);
+    if algoNum > 0 %save plot
+        filename= sprintf([algoNum, '/group.png']);
         %saveas(pFigEdges,filename, 'jpg'); 
         print('-noui' ,'-r0', '-djpeg',  filename);
         %print('-r0', '-djpeg',  filename);
