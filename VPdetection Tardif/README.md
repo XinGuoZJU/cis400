@@ -57,3 +57,6 @@ Acknowledgment:
 Patrick Denis for the York Database (see paper for detail)
 Frédéric Devernay for CMINPACK
 Peter Kovesi for some inspiration on the edge detection code and the function lineseg2.m
+
+
+

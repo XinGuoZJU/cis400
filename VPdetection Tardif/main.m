@@ -1,5 +1,7 @@
 function main(imgStr)
 
+savepath = 'results';
+
 %includes
 addpath(genpath('JLinkage'));
 addpath 'lineSegDetect/'
@@ -10,7 +12,7 @@ ARGS.mKinv = [];
 
 %arguments for Vanishing point detection
 ARGS.plot = 1; 
-ARGS.savePlot = true;
+ARGS.savePlot = false;
 
 ARGS.manhattanVP = true;
 %ARGS.manhattanVP = false;
@@ -35,7 +37,7 @@ ARGS.imgStr = imgStr;
 im = imread(imgStr);
 im = rgb2gray(im);
 if ARGS.plot
-  ARGS.savePath = 'results';
+  ARGS.savePath = savepath;
   f1 = sfigure(1); 
   clf;
   f = figure('visible','off');
@@ -63,6 +65,35 @@ vbOutliers = FACADE_getOutliers(ARGS,vsEdges, vClass, vsVP);
 [vsVP, vClass] = FACADE_orderVP_Mahattan(vsVP, vsEdges, vClass);
 %[vsVP, vClass] = FACADE_orderVP_nbPts(vsVP, vsEdges, vClass);
 [f123, f12] = FACADE_selfCalib(ARGS,vsVP, vsEdges, vClass, vbOutliers);
+
+%% vsEdges
+% vPts_un: points on line segment
+% vPts: normalized points on line segment
+% vL: ax + by + c = 0, (a, b, c)
+
+
+vp_len = length(vsEdges);
+endpoints = [];
+for i = 1:vp_len
+    points = vsEdges(i).vPts_un;
+    endpoint = [points(:, 1), points(:, end)];
+    endpoints = [endpoints, endpoint];
+end
+
+
+vp_list = [];
+vp_num = size(vsVP, 2);
+for i = 1:vp_num
+    vp = vsVP(i).VP;
+    vp_list = [vp_list, vp];
+end 
+
+prediction.lines = endpoints;   % 2 x (2xnum_lines): two endpoints
+prediction.group = vClass;
+prediction.vp = vp_list;
+save_path = [savepath, '/data.mat'];
+save(save_path, 'prediction')
+
 
 if ARGS.plot 
   %ploting

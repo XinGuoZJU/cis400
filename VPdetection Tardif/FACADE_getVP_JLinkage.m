@@ -45,7 +45,7 @@ function [vsVP,vCluster] = FACADE_getVP_JLinkage(vsEdges, im, ARGS)
             %vsVP(c).VP=FACADE_mxFitVP_x_GS(  vsEdges__ );
         end
     end
-
+    
 
     %---------------------------------------------------
     if ARGS.JL_GRICselect
