@@ -57,6 +57,7 @@ function [vsEdges,imgEdge] = FACADE_getEdgelets2(img, ARGS)
     for j=1:nbLine
         vPts_un{j} =m*[edgelist{j}]'+1;  % vPts_un: cell, for each cell is 2 x num
     end
+    
     vsEdges = FACADE_build_vsEdges(vPts_un, ARGS, false);
     
     return

@@ -60,7 +60,6 @@ function vsEdges = FACADE_build_vsEdges(vPts_un, ARGS, noFit)
         vsEdges(j).vL = vL/norm(vL);
         vsEdges(j).vLtL = vL*vL';
         
-        
         vsEdges(j).nb   = size(vPts,2);
         vsEdges(j).vPointUn1 = vsEdges(j).vPts_un(:,1);
         vsEdges(j).vPointUn2 = vsEdges(j).vPts_un(:,end);

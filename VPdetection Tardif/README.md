@@ -59,4 +59,6 @@ Frédéric Devernay for CMINPACK
 Peter Kovesi for some inspiration on the edge detection code and the function lineseg2.m
 
 
+Xin Guo changed the way of normalization in FACADE_build_vsEdges.m
+
 

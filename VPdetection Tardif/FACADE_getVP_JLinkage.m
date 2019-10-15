@@ -29,7 +29,7 @@ function [vsVP,vCluster] = FACADE_getVP_JLinkage(vsEdges, im, ARGS)
     [T, totdbin] = clusterPoints(totd, THRESH, ARGS.JL_ALGO);
     vCluster = T(:)';         
     FCprintf('nb Class %d\n', max(vCluster) );
-                
+   
     %fit VP to each cluster
     for c=1:max(vCluster)
         vb = (vCluster==c);% & ~vbOutliers;
@@ -45,7 +45,7 @@ function [vsVP,vCluster] = FACADE_getVP_JLinkage(vsEdges, im, ARGS)
             %vsVP(c).VP=FACADE_mxFitVP_x_GS(  vsEdges__ );
         end
     end
-    
+   
 
     %---------------------------------------------------
     if ARGS.JL_GRICselect
