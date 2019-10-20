@@ -1,8 +1,7 @@
-clear
-close all
+function run(imgStr, savepath)
 
-imgStr = 'demo_data/imgs/P1020171.jpg';
-savepath = 'demo_data/output/P1020171';
+%imgStr = 'demo_data/imgs/P1020171.jpg';
+%savepath = 'demo_data/output/P1020171';
 
 %includes
 addpath(genpath('JLinkage'));
@@ -110,5 +109,8 @@ prediction.image_size = image_size;
 prediction.lines = endpoints;   % 2 x (2xnum_lines): two endpoints
 prediction.vp = vp_list;
 prediction.group = vClass;
+mkdir(savepath)
 save_path = [savepath, '/data.mat'];
 save(save_path, 'prediction')
+
+end

@@ -22,9 +22,9 @@ def imshow(im):
 
 
 if __name__ == '__main__':
-    image_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/demo_data/imgs'
-    org_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/data/data.json'
-    save_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/viz_group'
+    image_path = '/n/fs/vl/xg5/Datasets/YUD/YorkUrbanDB'
+    org_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/dataset/YUD/data/data.json'
+    save_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/dataset/YUD/viz_group'
 
     with open(org_path, 'r') as f:
         org_lines = f.readlines()
@@ -35,12 +35,11 @@ if __name__ == '__main__':
             org_line = np.array(data_dict['org_line']).tolist()
 
             image_dir = data_dict['image_path']
-            image_name = os.path.join(image_path, image_dir)
+            image_name = os.path.join(os.path.join(image_path, image_dir.split('.')[0]), image_dir)
             image = io.imread(image_name).astype(float) / 255
 
             os.makedirs(save_path, exist_ok=True)
             save_name = os.path.join(save_path, image_dir)
-            print(save_name)
 
             color_list = ['y', 'b', 'm', 'k', 'r', 'c', 'g', 'w']
             # draw
@@ -50,6 +49,8 @@ if __name__ == '__main__':
                 g = int(group[i])
                 if g == -1:  # it is not necessary in this code
                     color = 'k--'
+                elif g > len(color_list) - 1:
+                    color = 'k:'
                 else:
                     color = color_list[g]
 
@@ -59,6 +60,5 @@ if __name__ == '__main__':
                 plt.scatter(b[1], b[0], c='#33FFFF', s=1.2)
 
             plt.savefig(save_name, dpi=500, bbox_inches=0)
-
 
 

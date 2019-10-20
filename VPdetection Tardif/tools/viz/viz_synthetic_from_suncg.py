@@ -36,7 +36,7 @@ def visualize(line_seg, pred_group, save_name, vp=None):
     color_list = ['y', 'b', 'm', 'r', 'c', 'g', 'w', 'k']
     # draw lines
     #######
-    log = np.zeros(8)
+    log = np.zeros(100)
     #######
 
     for i in range(len(line_seg)):
@@ -52,6 +52,8 @@ def visualize(line_seg, pred_group, save_name, vp=None):
 
         if group == -1:
             color = 'k--'
+        elif group > len(color_list) - 1:
+            color = 'k:'
         else:
             color = color_list[group]
         a, b, c = line
@@ -75,8 +77,8 @@ def visualize(line_seg, pred_group, save_name, vp=None):
 
 
 if __name__ == '__main__':
-    org_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/data/data.json'
-    save_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/viz_line'
+    org_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/dataset/YUD/data/data.json'
+    save_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/dataset/YUD/viz_line'
     os.makedirs(save_path, exist_ok=True)
 
     with open(org_path, 'r') as f:

@@ -68,7 +68,7 @@ def process(data_list, save_path):
             new_vp = [(vp[1] / vp[2] * norm - image_size[0] / 2) / (image_size[0] / 2), 
                       (vp[0] / vp[2] * norm - image_size[1] / 2) / (image_size[1] / 2)]
             vps_output.append(new_vp)
-
+        
         line_segs_output, new_lines_output = lineseg2line(line_segs, image_size)
         group_output = group
 
@@ -81,10 +81,10 @@ def process(data_list, save_path):
 
 
 if __name__ == '__main__':
-    path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/demo_data/output/P1020830'
-    data_list = [os.path.join(path, 'data.mat')]
+    path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/dataset/YUD/output'
+    data_list = [os.path.join(path, dir_path + '/data.mat') for dir_path in os.listdir(path)]
 
-    save_path = 'data/data.json'
+    save_path = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/dataset/YUD/data/data.json'
     process(data_list, save_path)
     
 
