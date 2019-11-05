@@ -19,7 +19,7 @@ function [f123,f12] = FACADE_selfCalib(ARGS,vsVP, vsEdges, vClass, vbOutliers)
     else
         f123 =0;
     end
-
+    
     %first 2 only
     if length(vsVP)>=2
 
