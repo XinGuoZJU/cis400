@@ -19,8 +19,17 @@ def run(dataset_name, idx, save_op):
                                                         + dataset_name + '/output'
     error_file = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/logs/' \
                                     + dataset_name + '_' + str(idx) + '_error.txt'
+    error_file2 = '/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/error_logs/' + dataset_name + '.txt'
     
     file_list = []
+    if os.path.isfile(error_file2):
+        with open(error_file2, 'r') as op:
+            lines = op.readlines()
+            for line in lines:
+                line_list = line.strip().split('/')
+                image_path = line_list[-2] + '/' + line_list[-1]
+                file_list.append(image_path)
+
     if os.path.isfile(error_file):
         with open(error_file, 'r') as op:
             lines = op.readlines()
