@@ -8,37 +8,54 @@ if strcmp(dataset_name, 'YUD')
     index_file = ['/n/fs/vl/xg5/Datasets/YUD/label/index_', num2str(idx), '.txt'];
     datapath = '/n/fs/vl/xg5/Datasets/YUD/YorkUrbanDB';
     savepath = 'dataset/YUD/output';
-    img_type = 'jpg';
 elseif strcmp(dataset_name, 'ScanNet')
     index_file = ['/n/fs/vl/xg5/Datasets/ScanNet/label/index_', num2str(idx), '.txt'];
     datapath = '/n/fs/vl/xg5/Datasets/ScanNet/scannet-vp';
     savepath = 'dataset/ScanNet/output';
-    img_type = 'png';
 elseif strcmp(dataset_name, 'SceneCityUrban3D')
     index_file = ['/n/fs/vl/xg5/Datasets/SceneCityUrban3D/label/index_', num2str(idx), '.txt'];
     datapath = '/n/fs/vl/xg5/Datasets/SceneCityUrban3D/su3';
     savepath = 'dataset/SceneCityUrban3D/output';
-    img_type = 'png';
 elseif strcmp(dataset_name, 'SUNCG')
     index_file = ['/n/fs/vl/xg5/Datasets/SUNCG/label/index_', num2str(idx), '.txt'];
     datapath = '/n/fs/vl/xg5/Datasets/SUNCG/mlt_v2';
     savepath = 'dataset/SUNCG/output';
-    img_type = 'png';
 elseif strcmp(dataset_name, 'ScanNet_error')
     index_file = ['/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/error_case/ScanNet_', num2str(idx), '.txt'];
     datapath = '/n/fs/vl/xg5/Datasets/ScanNet/scannet-vp';
     savepath = 'dataset/ScanNet/output';
-    img_type = 'png';
 elseif strcmp(dataset_name, 'SceneCityUrban3D_error')
     index_file = ['/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/error_case/SceneCityUrban3D_', num2str(idx), '.txt'];
     datapath = '/n/fs/vl/xg5/Datasets/SceneCityUrban3D/su3';
     savepath = 'dataset/SceneCityUrban3D/output';
-    img_type = 'png';
 elseif strcmp(dataset_name, 'SUNCG_error')
     index_file = ['/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/error_case/SUNCG_', num2str(idx), '.txt'];
     datapath = '/n/fs/vl/xg5/Datasets/SUNCG/mlt_v2';
     savepath = 'dataset/SUNCG/output';
-    img_type = 'png';
+elseif strcmp(dataset_name, 'ScanNet_aug')
+    index_file = ['/n/fs/vl/xg5/Datasets/ScanNet_aug/label/index_', num2str(idx), '.txt'];
+    datapath = '/n/fs/vl/xg5/Datasets/ScanNet_aug/image';
+    savepath = 'dataset/ScanNet_aug/output';
+elseif strcmp(dataset_name, 'SceneCityUrban3D_aug')
+    index_file = ['/n/fs/vl/xg5/Datasets/SceneCityUrban3D_aug/label/index_', num2str(idx), '.txt'];
+    datapath = '/n/fs/vl/xg5/Datasets/SceneCityUrban3D_aug/image';
+    savepath = 'dataset/SceneCityUrban3D_aug/output';
+elseif strcmp(dataset_name, 'SUNCG_aug')
+    index_file = ['/n/fs/vl/xg5/Datasets/SUNCG_aug/label/index_', num2str(idx), '.txt'];
+    datapath = '/n/fs/vl/xg5/Datasets/SUNCG_aug/image';
+    savepath = 'dataset/SUNCG_aug/output';
+elseif strcmp(dataset_name, 'ScanNet_aug_error')
+    index_file = ['/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/error_case/ScanNet_aug_', num2str(idx), '.txt'];
+    datapath = '/n/fs/vl/xg5/Datasets/ScanNet_aug/image';
+    savepath = 'dataset/ScanNet_aug/output';
+elseif strcmp(dataset_name, 'SceneCityUrban3D_aug_error')
+    index_file = ['/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/error_case/SceneCityUrban3D_aug_', num2str(idx), '.txt'];
+    datapath = '/n/fs/vl/xg5/Datasets/SceneCityUrban3D_aug/image';
+    savepath = 'dataset/SceneCityUrban3D_aug/output';
+elseif strcmp(dataset_name, 'SUNCG_aug_error')
+    index_file = ['/n/fs/vl/xg5/workspace/baseline/cis400/VPdetection Tardif/tools/error_case/SUNCG_aug_', num2str(idx), '.txt'];
+    datapath = '/n/fs/vl/xg5/Datasets/SUNCG_aug/image';
+    savepath = 'dataset/SUNCG_aug/output';
 end
 
 

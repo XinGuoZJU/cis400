@@ -16,7 +16,7 @@ def run(data_name):
 
 
 if __name__ == '__main__':
-    data_list = ['ScanNet', 'SceneCityUrban3D', 'SUNCG']
+    data_list = ['ScanNet_aug', 'SceneCityUrban3D_aug', 'SUNCG_aug']
     for data_name in data_list:
         run(data_name)
 
